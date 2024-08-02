@@ -4,3 +4,4 @@ streamlit==1.37.0
 tiktoken==0.3.3
 langchain-community
 openai
+faiss-cpu
