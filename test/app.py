@@ -9,7 +9,7 @@ import tiktoken
 import openai
 
 # Access the secret
-openai_api_key = st.secrets["api_keys"]["openai_api_key"]
+openai_api_key = st.secrets["api_keys"]["OPENAI_API_KEY"]
 
 # Use the API key
 openai.api_key = openai_api_key
@@ -24,7 +24,7 @@ def get_csv_chunks(csv_files):
     return chunks
 
 def get_vectorstore(chunks):
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small", openai_api_key=openai_api_key)
     vectorstore = FAISS.from_texts(texts=chunks, embedding=embeddings)
     return vectorstore, embeddings
 
