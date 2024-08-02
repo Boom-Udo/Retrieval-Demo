@@ -6,6 +6,14 @@ from langchain.vectorstores import FAISS
 from htmlTemplates import css, bot_template, user_template
 import tiktoken
 
+import openai
+
+# Access the secret
+openai_api_key = st.secrets["api_keys"]["openai_api_key"]
+
+# Use the API key
+openai.api_key = openai_api_key
+
 def get_csv_chunks(csv_files):
     chunks = []
     for csv_file in csv_files:
